@@ -1,0 +1,32 @@
+type: object
+
+key: _id
+
+data:
+  count: 10
+
+properties:
+
+  _id:
+    data:
+      post_build: `${faker.internet.userName(this.firstName.toLowerCase(), this.lastName.toLowerCase())}`
+
+  type:
+    data:
+      value: customer
+
+  firstName:
+    data:
+      fake: "{{name.firstName}}"
+
+  lastName:
+    data:
+      fake: "{{name.lastName}}"
+
+  email:
+    data:
+      build: `${faker.internet.email(this.firstName.toLowerCase(), this.lastName.toLowerCase())}`
+
+  telephone:
+    data:
+      fake: "{{phone.phoneNumberFormat(3)}}"

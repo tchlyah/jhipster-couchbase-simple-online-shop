@@ -1,0 +1,40 @@
+type: object
+
+key:
+  data:
+    build: `${faker.random.uuid()}`
+
+data:
+  count: 10
+  dependencies:
+    - customer.yml
+
+properties:
+
+  type:
+    data:
+      value: address
+
+  address1:
+    data:
+      fake: "{{address.streetAddress}}"
+
+  address2:
+    data:
+      fake: "{{address.secondaryAddress}}"
+
+  city:
+    data:
+      fake: "{{address.city}}"
+
+  postcode:
+    data:
+      fake: "{{address.zipCode}}"
+
+  country:
+    data:
+      fake: "{{address.countryCode}}"
+
+  customer:
+    data:
+      build: faker.random.arrayElement(documents.customer)._id

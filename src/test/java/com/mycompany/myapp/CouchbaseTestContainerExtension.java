@@ -24,6 +24,7 @@ public class CouchbaseTestContainerExtension implements BeforeAllCallback {
                 new CouchbaseContainer(dockerImage)
                     .withBucket(new BucketDefinition(getBucketName()).withQuota(100))
                     .withServiceQuota(CouchbaseService.SEARCH, 1024)
+                    .withEventingService()
                     .withCredentials("user", "secret");
             couchbase.start();
             System.setProperty("spring.couchbase.connection-string", couchbase.getConnectionString());

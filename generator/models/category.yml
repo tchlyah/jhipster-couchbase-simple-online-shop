@@ -1,0 +1,37 @@
+type: object
+
+key: _id
+
+data:
+  count: 10
+  pre_run: |
+    globals.counter = 0
+
+properties:
+  _id:
+    data:
+      post_build: `${this.description.toLowerCase()}`
+
+  type:
+    data:
+      value: category
+
+  description:
+    data:
+      fake: "{{commerce.department}}"
+
+  dateAdded:
+    data:
+      build: faker.date.recent().getTime()
+
+  dateModified:
+    data:
+      build: faker.date.recent().getTime()
+
+  status:
+    data:
+      build: faker.random.arrayElement(["AVAILABLE", "RESTRICTED", "DISABLED"])
+
+  sortOrder:
+    data:
+      build: globals.counter++

@@ -1,0 +1,31 @@
+[
+  {
+      "appcode": "function OnUpdate(doc, meta) {\n    log(\"Doc created/updated\", meta.id);\n    \n    var type = doc.type;\n    if (!type) {\n        return;\n    }\n    \n    try {\n        var query = `UPSERT INTO \\`${bucket}\\`.\\`${scope}\\`.\\`${type}\\` VALUES (\"${meta.id}\", ${JSON.stringify(doc)});`\n        N1QL(query);\n        log(\"Doc copied to collection '\" + type + \"'\", id);\n    } catch (error) {\n        log(error);\n    }\n}\n",
+    "depcfg": {
+      "source_bucket": "${bucket}",
+      "source_scope": "_default",
+      "source_collection": "_default",
+      "metadata_bucket": "${bucket}",
+      "metadata_scope": "${scope}",
+      "metadata_collection": "eventing"
+    },
+    "version": "evt-7.0.3-7031-ee",
+    "enforce_schema": false,
+    "appname": "migrateToCollection",
+    "settings": {
+      "cluster_stats": null,
+      "dcp_stream_boundary": "everything",
+      "deployment_status": false,
+      "description": "",
+      "execution_timeout": 60,
+      "language_compatibility": "6.6.2",
+      "log_level": "INFO",
+      "n1ql_consistency": "none",
+      "num_timer_partitions": 128,
+      "processing_status": false,
+      "timer_context_size": 1024,
+      "user_prefix": "eventing",
+      "worker_count": 1
+    }
+  }
+]

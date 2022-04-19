@@ -188,7 +188,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-data-couchbase"
     testImplementation "org.testcontainers:junit-jupiter"
-    testImplementation "org.testcontainers:testcontainers"
+    testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation ("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
@@ -206,7 +206,7 @@ dependencies {
         implementation "io.jsonwebtoken:jjwt-impl"
         implementation "io.jsonwebtoken:jjwt-jackson"
     }
-    implementation "com.github.differentway:couchmove"
+    implementation "com.github.differentway:couchmove:${couchmoveVersion}"
     implementation "com.couchbase.client:java-client"
     implementation ("org.springdoc:springdoc-openapi-webmvc-core")
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
@@ -217,7 +217,7 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-test"
     testImplementation "com.tngtech.archunit:archunit-junit5-api:${archunitJunit5Version}"
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunitJunit5Version}"
-    testImplementation "org.testcontainers:couchbase"
+    testImplementation "org.testcontainers:couchbase:${testcontainersVersion}"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }

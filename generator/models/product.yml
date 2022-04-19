@@ -1,0 +1,49 @@
+type: object
+
+key:
+  data:
+    build: `${faker.random.uuid()}`
+
+data:
+  count: 10
+  dependencies:
+    - category.yml
+
+properties:
+  type:
+    data:
+      value: product
+
+  title:
+    data:
+      fake: "{{commerce.product}}"
+
+  description:
+    data:
+      fake: "{{commerce.productName}}"
+
+  keywords:
+    data:
+      fake: "{{commerce.productAdjective}}"
+
+  rating:
+    data:
+      build: |
+        chance.integer({ min: 1, max: 5 })
+
+  dateAdded:
+    data:
+      build: faker.date.recent().getTime()
+
+  dateModified:
+    data:
+      build: faker.date.recent().getTime()
+
+  categories:
+    type: array
+    items:
+      type: string
+      data:
+        min: 1
+        max: 5
+        build: faker.random.arrayElement(documents.category)._id
