@@ -1,0 +1,13 @@
+{
+  "login": "admin",
+  "password": "$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC",
+  "firstName": "Administrator",
+  "lastName": "Administrator",
+  "email": "admin@localhost",
+  "activated": true,
+  "langKey": "en",
+  "createdBy": "system",
+  "lastModifiedBy": "system",
+  "authorities": ["ROLE_USER", "ROLE_ADMIN"],
+  "type": "user"
+}

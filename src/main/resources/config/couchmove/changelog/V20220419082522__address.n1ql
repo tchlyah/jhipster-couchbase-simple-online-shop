@@ -1,0 +1,5 @@
+CREATE COLLECTION `${bucket}`.`${scope}`.`address`;
+
+CREATE INDEX `address_type` ON `${bucket}`.`${scope}`.`address`(type)
+    WHERE `type` = "address"
+    WITH { "defer_build" : true };
